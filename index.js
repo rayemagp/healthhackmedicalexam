@@ -5182,6 +5182,18 @@ app.controller('test_schedule', [
 
             }];
 
+        $scope.merge = function(){
+            var all = [];
+            for(schedule in $scope.case_schedule)
+            for (test in $scope.case_schedule[schedule]) {
+            all.push($scope.case_schedule[schedule][test]);
+            }
+            console.log(all);
+            return all;
+        }
+
+        $scope.merged = $scope.merge();
+
         $scope.padAll = function () {
             for (schedule in $scope.case_schedule)
             for (test in $scope.case_schedule[schedule]) {
