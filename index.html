@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <title></title>
+</head>
+<body>
+    <div id="side_bar" class="col-md-1"></div>
+    <div id="main_view" class="col-md-11" ng-controller="test_schedule" ng-app="app">
+
+        <div>
+            <input type="text" class="form-control" placeholder="Search" style="width:100%;" ng-model="search">
+        </div>
+        <table ng-repeat="runs in case_schedule | filter:search" ng-init="padAll();">
+                <tr>
+                    <th ng-if="runs == case_schedule[0]">Time Slot</th>
+                    <th>Case</th>
+                    <th>Examiner 1</th>
+                    <th>Examiner 2</th>
+                    <th>Student</th>
+                </tr>
+                <tr ng-repeat="test in runs">
+                            <td ng-if="runs == case_schedule[0]">{{test.Time_ID}}</td>
+                            <td>{{test.Case_ID}}</td>
+                            <td ng-click="changeTableVar('Exam_ID1',test.Case_ID);">{{test.Exam_ID1_Name}}</td>
+                            <td ng-click="changeTableVar('Exam_ID2',test.Case_ID);">{{test.Exam_ID2_Name}}</td>
+                            <td ng-click="changeTableVar('Cand_ID',test.Cand_ID);">{{test.Cand_ID_Name}}</td>
+
+                 </tr>
+        </table>
+    </div>
+    <div id="bottom_tabs" class="col-md-12"></div>
+    </div>
+</body>
+</html>
