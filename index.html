@@ -102,13 +102,11 @@
                         <th>Examiner ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Venue</th>
                     </tr>
-                    <tr ng-repeat="test in Exams | filter:search | orderBy:'Exam_ID_Name'">
-                        <td>{{Cand_IDs[$index]}}</td>
-                        <td>{{test.Fname}}</td>
-                        <td>{{test.Sname}}</td>
-                        <td>{{test.Venue}}</td>
+                    <tr ng-repeat="test in Exams | filter:search">
+                        <td>{{Exam_IDs[$index]}}</td>
+                        <td>{{test.FIRST_NAME}}</td>
+                        <td>{{test.LAST_NAME}}</td>
                     </tr>
                 </table>
             </div>
