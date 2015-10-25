@@ -5161,7 +5161,7 @@ app.controller('test_schedule', [
                     "Exam_ID2": 7000018
                     , "Time_ID": 20
                     , "Case_ID": "1"
-                    , "Cand_ID": 736296
+                    , "Cand_ID": 786538
                 },
                 "21.Q": {
                     "Exam_ID1": 7000001,
@@ -5181,6 +5181,8 @@ app.controller('test_schedule', [
                 },
 
             }];
+
+        $scope.case
 
         $scope.merge = function(){
             var all = [];
@@ -5238,5 +5240,37 @@ app.controller('test_schedule', [
             $scope.padAll();
         }
 
-        $scope.getTotalCase_ID = new Array(2);
+        //tab options
+        $scope.options = 1;
+
+        ////////////////////CANDIDATE_LIST////////////////////////
+        $scope.Cand_IDs = (Object.keys($scope.candidates[0]));
+
+        $scope.Cand_Full = function(){
+            var candidates_all = [];
+            for (test in $scope.candidates[0])
+            {
+                candidates_all.push($scope.candidates[0][test]);
+            }
+            return candidates_all;
+        };
+        /////////////////////////////////////////////////////////
+
+        ////////////////////EXAMINER_LIST////////////////////////
+        $scope.Exam_IDs = (Object.keys($scope.examiners[0]));
+
+        $scope.Exam_Full = function(){
+            var candidates_all = [];
+            for (test in $scope.examiners[0])
+            {
+                candidates_all.push($scope.examiners[0][test]);
+            }
+            return candidates_all;
+        };
+        /////////////////////////////////////////////////////////
+
+        $scope.changeOptions = function (options){
+            $scope.options = options;
+
+        }
     }]);
