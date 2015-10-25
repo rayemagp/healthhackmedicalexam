@@ -1,8 +1,8 @@
 var app = angular.module('app', []);
 
 app.controller('test_schedule', [
-    '$scope', '$filter', '$http',
-    function($scope,$http) {
+    '$scope', '$http',
+    function($scope, $http) {
 
         $scope.checkSearch = function (value, model) {
             if (model.length > 0)
@@ -5182,7 +5182,8 @@ app.controller('test_schedule', [
 
             }];
 
-        
+        $http({method:'GET',url:"http://localhost:63342/healthhack/Test_Data/caseschedtest.json"}).success(function(response){$scope.case_schedule = [response];});
+
         $scope.merge = function(){
             var all = [];
             for(schedule in $scope.case_schedule)
